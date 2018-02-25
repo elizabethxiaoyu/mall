@@ -26,7 +26,7 @@ public class Cart {
         this.createTime = createTime;
         this.updateTime = updateTime;
     }
-    
+
     public Cart() {
         super();
     }

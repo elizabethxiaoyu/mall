@@ -6,6 +6,7 @@ import java.security.MessageDigest;
 
 /**
  * Created by geely
+ * 为了增加加密的复杂性，附加一个字符串，在正常的后面附加一个字符串   盐值
  */
 public class MD5Util {
 
@@ -48,6 +49,7 @@ public class MD5Util {
     }
 
     public static String MD5EncodeUtf8(String origin) {
+        //加了盐值，加密更加安全，提高MD5破解的复杂度
         origin = origin + PropertiesUtil.getProperty("password.salt", "");
         return MD5Encode(origin, "utf-8");
     }
