@@ -107,7 +107,7 @@
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.User" >
     update mmall_user
-    <set >
+    <set>
       <if test="username != null" >
         username = #{username,jdbcType=VARCHAR},
       </if>
@@ -166,7 +166,7 @@
 
   <select id="selectLogin" resultMap="BaseResultMap" parameterType="map">
     SELECT
-    --     *???//这样真的好么?答案就是,这样不好.
+
     <include refid="Base_Column_List" />
     from mmall_user
     where username = #{username}

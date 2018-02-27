@@ -8,14 +8,14 @@ import com.mmall.pojo.User;
  */
 public interface IUserService {
     ServerResponse<User> login(String username, String password);
-    public ServerResponse<String> register(User user);
-    public ServerResponse<String> checkValid(String str, String type);
-    public ServerResponse<String> selectQuestion(String username);
-    public  ServerResponse<String> checkAnswer(String username, String question,String answer);
-    public  ServerResponse<String> forgetRestPassword(String username, String passwordNew,String forgetToken);
-    public ServerResponse<String> resetPassword( String passwordOld, String passwordNew,User user);
-    public ServerResponse<User> update_information(User user);
-    public ServerResponse<User> get_information(Integer userId);
-    public ServerResponse checkAdminRole(User user);
+    ServerResponse<String> register(User user);
+    ServerResponse<String> checkValid(String str, String type);
+    ServerResponse<String> selectQuestion(String username);
+    ServerResponse<String> checkAnswer(String username, String question, String answer);
+    ServerResponse<String> forgetRestPassword(String username, String passwordNew, String forgetToken);
+    ServerResponse<String> resetPassword(String passwordOld, String passwordNew, User user);
+    ServerResponse<User> update_information(User user);
+    ServerResponse<User> get_information(Integer userId);
+    ServerResponse checkAdminRole(User user);
 }
 
