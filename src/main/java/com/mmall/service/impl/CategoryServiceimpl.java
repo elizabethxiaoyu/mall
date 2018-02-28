@@ -1,12 +1,20 @@
 package com.mmall.service.impl;
 
+import ch.qos.logback.classic.Logger;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.mmall.common.ServerResponse;
 import com.mmall.dao.CategoryMapper;
 import com.mmall.pojo.Category;
 import com.mmall.service.ICategoryService;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -17,6 +25,8 @@ public class CategoryServiceimpl implements ICategoryService {
 
     @Autowired
     private CategoryMapper categoryMapper;
+
+    private org.slf4j.Logger logger = LoggerFactory.getLogger(CategoryServiceimpl.class);
 
     public ServerResponse addCategory(String categoryName, Integer parentId){
         if(parentId == null || StringUtils.isBlank(categoryName)){
@@ -54,4 +64,45 @@ public class CategoryServiceimpl implements ICategoryService {
             return ServerResponse.createByErrorMessage("更新品类名字失败");
         }
     }
+
+    public ServerResponse<List<Category>> getChildrenParallelCategory(Integer categoryId){
+        List<Category> categoryList = categoryMapper.selectCategoryChildrenByParentId(categoryId);
+        if(CollectionUtils.isEmpty(categoryList)){
+            logger.info("未找到当前分类的子分类");
+        }
+        return ServerResponse.createBySuccess(categoryList);
+    }
+
+    /**
+     * 递归查询本节点的id及子节点的id
+     * @param categoryId
+     * @return
+     */
+    public ServerResponse selectCategoryAndChildrenById(Integer categoryId){
+        Set<Category> categorySet = Sets.newHashSet();
+        findChildCategory(categorySet,categoryId);
+        List<Integer> categoryIdList = Lists.newArrayList();
+        if(categoryId != null){
+            for(Category categoryItem : categorySet ){
+                categoryIdList.add(categoryItem.getId());
+            }
+        }
+        return ServerResponse.createBySuccess(categoryIdList);
+    }
+    //递归算法算出子节点
+    private Set<Category> findChildCategory(Set<Category> categorySet,Integer categoryId){
+        Category category = categoryMapper.selectByPrimaryKey(categoryId);
+        if(category != null){
+            categorySet.add(category);
+        }
+        //查找子节点
+        List<Category> categoryList = categoryMapper.selectCategoryChildrenByParentId(categoryId);
+        //这里categoryList是mybatis的返回结果，如果没有查到，是不会返回null的，所以下面的foreach不用进行null判断
+        for(Category categoryItem :categoryList){
+            findChildCategory(categorySet,categoryItem.getId());
+        }
+        //这里是退出条件，因为如果categoryList为空的话，上面的foreach就进不去
+        return categorySet;
+    }
+
 }
