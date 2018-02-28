@@ -184,4 +184,21 @@
     from mmall_product
     order by id ASC
   </select>
+
+  <select id = "selectByNameAndProductId" resultMap="BaseResultMap" parameterType="map">
+    select
+    <include refid="Base_Column_List"/>
+    from mmall_product
+    <where>
+      <if test = "productName != null">
+        and where name like #{productName}
+      </if>
+      <if test = "productName != null">
+        and id = #{productId}
+      </if>
+
+    </where>
+
+
+  </select>
 </mapper>
