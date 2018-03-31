@@ -36,6 +36,8 @@ public class CartServiceImpl implements ICartService{
     @Autowired
     private ProductMapper productMapper;
 
+
+
     public ServerResponse<CartVo> add(Integer userId, Integer productId, Integer count){
 
         if(productId == null || count == null){
@@ -109,6 +111,7 @@ public class CartServiceImpl implements ICartService{
         return ServerResponse.createBySuccess(cartMapper.selectCartProductCount(userId));
 
     }
+
     private CartVo getCartVoLimit(Integer userId){
         CartVo cartVo = new CartVo();
         List<Cart> cartList = cartMapper.selectCartByUserId(userId);
@@ -170,7 +173,6 @@ public class CartServiceImpl implements ICartService{
 
         return cartVo;
     }
-
 
     private boolean getAllChecked(Integer userId){
         if(userId == null){

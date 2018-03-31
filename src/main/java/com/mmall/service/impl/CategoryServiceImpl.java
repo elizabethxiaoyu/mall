@@ -1,6 +1,5 @@
 package com.mmall.service.impl;
 
-import ch.qos.logback.classic.Logger;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.mmall.common.ServerResponse;
@@ -21,12 +20,12 @@ import java.util.Set;
  * Created by Eliza Liu on 2018/2/27
  */
 @Service("ICategoryService")
-public class CategoryServiceimpl implements ICategoryService {
+public class CategoryServiceImpl implements ICategoryService {
 
     @Autowired
     private CategoryMapper categoryMapper;
 
-    private org.slf4j.Logger logger = LoggerFactory.getLogger(CategoryServiceimpl.class);
+    private org.slf4j.Logger logger = LoggerFactory.getLogger(CategoryServiceImpl.class);
 
     public ServerResponse addCategory(String categoryName, Integer parentId){
         if(parentId == null || StringUtils.isBlank(categoryName)){
