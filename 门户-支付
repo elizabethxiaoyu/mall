@@ -1,0 +1,72 @@
+# 门户-支付
+## 1.支付
+/order/pay.do
+
+http://localhost:8088/order/pay.do?orderNo=1485158676346
+>  request
+>> orderNo
+
+
+> response
+>>  fail
+```json
+{
+    "status": 1,
+    "msg": "支付宝生成订单失败"
+}
+```
+  success
+```json
+{
+    "status": 0,
+    "data": {
+        "orderNo": "1485158676346",
+        "qrPath": "http://img.mall.com/qr-1492329044075.png"
+    }
+}
+```
+
+
+
+## 2.查询订单支付状态
+/order/query_order_pay_status.do
+
+http://localhost:8088/order/query_order_pay_status.do?orderNo=1485158676346
+> request
+>>   orderNo
+
+
+> response
+
+>>  fail
+```json
+{
+    "status": 1,
+    "msg": "该用户并没有该订单,查询无效"
+}
+```
+  success
+```json
+{
+    "status": 0,
+    "data": true
+}
+```
+
+## 3.支付宝回调
+参考支付宝回调文档： https://support.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.mFogPC&treeId=193&articleId=103296&docType=1
+
+/order/alipay_callback.do
+
+>  request
+>>  HttpServletRequest
+
+> response
+>>  fail
+```json
+failed
+```
+  success
+```json
+success
+```

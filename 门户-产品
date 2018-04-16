@@ -1,0 +1,107 @@
+# 门户-产品
+## 1.产品搜索及动态排序
+/product/list.do
+
+http://localhost:8088/product/list.do?keyword=&categoryId=1&orderBy=price_desc
+> request
+>>   categoryId
+     keyword
+     pageNum(default=1)
+     pageSize(default=10)
+     orderBy(default="")：排序参数：例如price_desc，price_asc
+
+
+> response
+>>  fail
+```json
+{
+    "status": 1,
+    "msg": "参数错误"
+}
+```
+  success
+```json
+{
+    "status": 0,
+    "data": {
+        "pageNum": 1,
+        "pageSize": 10,
+        "size": 2,
+        "orderBy": null,
+        "startRow": 1,
+        "endRow": 2,
+        "total": 2,
+        "pages": 1,
+        "list": [
+            {
+                "id": 1,
+                "categoryId": 3,
+                "name": "iphone7",
+                "subtitle": "双十一促销",
+                "mainImage": "mainimage.jpg",
+                "status":1,
+                "price": 7199.22
+            },
+            {
+                "id": 2,
+                "categoryId": 2,
+                "name": "oppo R8",
+                "subtitle": "oppo促销进行中",
+                "mainImage": "mainimage.jpg",
+                "status":1,
+                "price": 2999.11
+            }
+        ],
+        "firstPage": 1,
+        "prePage": 0,
+        "nextPage": 0,
+        "lastPage": 1,
+        "isFirstPage": true,
+        "isLastPage": true,
+        "hasPreviousPage": false,
+        "hasNextPage": false,
+        "navigatePages": 8,
+        "navigatepageNums": [
+            1
+        ]
+    }
+}
+```
+
+
+## 2.产品详情
+/product/detail.do
+
+http://localhost:8088/product/detail.do?productId=2
+> request
+>>   productId
+
+
+> response
+>>  fail
+```json
+{
+    "status": 1,
+    "msg": "该商品已下架或删除"
+}
+```
+  success
+```json
+{
+  "status": 0,
+  "data": {
+    "id": 2,
+    "categoryId": 2,
+    "name": "oppo R8",
+    "subtitle": "oppo促销进行中",
+    "mainImage": "mainimage.jpg",
+    "subImages": "[\"mmall/aa.jpg\",\"mmall/bb.jpg\",\"mmall/cc.jpg\",\"mmall/dd.jpg\",\"mmall/ee.jpg\"]",
+    "detail": "richtext",
+    "price": 2999.11,
+    "stock": 71,
+    "status": 1,
+    "createTime": "2017-11-20 14:21:53",
+    "updateTime": "2017-11-20 14:21:53"
+  }
+}
+```

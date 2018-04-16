@@ -105,9 +105,9 @@ public class UserServiceimpl implements IUserService{
         int resultCount = userMapper.checkAnswer(username,question,answer);
         if(resultCount > 0 ){
             //说明问题及问题答案是这个用户的，且是正确的
-            //todo 这里生成uuid干啥？是为了生成一个token
+            //todo 这里生成uuid，是为了生成一个token
             String forgetToken = UUID.randomUUID().toString();
-            //todo 为什么将token放入本地缓存？
+            //todo 将token放入本地缓存
             TokenCache.setKey("token_" + username,forgetToken);
             return ServerResponse.createBySuccess(forgetToken);
         }
@@ -191,7 +191,7 @@ public class UserServiceimpl implements IUserService{
         if(user ==null){
             return ServerResponse.createByErrorMessage("找不到当前用户");
         }
-        //todo 为什么将password置为空字符串
+        //todo 将password置为空字符串
         user.setPassword(StringUtils.EMPTY);
         return ServerResponse.createBySuccess(user);
     }

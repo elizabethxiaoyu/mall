@@ -230,7 +230,7 @@
     select
     <include refid="Base_Column_List"/>
     from mmall_order
-    order by create_time desc;
+    order by create_time desc
 
   </select>
 </mapper>
