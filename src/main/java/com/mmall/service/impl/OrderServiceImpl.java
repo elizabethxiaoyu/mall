@@ -491,7 +491,7 @@ public class OrderServiceImpl implements IOrderService{
                     /*
                     根据订单号生成二维码路径
                      */
-                    String qrPath = String.format(path+"\\qr-%s.png",
+                    String qrPath = String.format(path+"/qr-%s.png",
                             response.getOutTradeNo());
                     String qrFileName = String.format("qr-%s.png", response.getOutTradeNo());
                     /**
