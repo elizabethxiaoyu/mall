@@ -23,7 +23,7 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/mmall_learning?characterEncoding=utf-8"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/todaymore?characterEncoding=utf-8"/>
         <property name="username" value="root"/>
         <property name="password" value="20151111"/>
         <!-- 连接池启动时的初始值 -->
