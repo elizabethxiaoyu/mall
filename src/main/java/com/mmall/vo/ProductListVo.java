@@ -22,6 +22,8 @@ public class ProductListVo {
 
     private String imageHost;
 
+    private Integer ownerId;
+
     public Integer getId() {
         return id;
     }
@@ -84,5 +86,13 @@ public class ProductListVo {
 
     public void setImageHost(String imageHost) {
         this.imageHost = imageHost;
+    }
+
+    public Integer getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
     }
 }

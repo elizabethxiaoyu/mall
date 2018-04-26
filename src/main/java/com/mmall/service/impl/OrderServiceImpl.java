@@ -40,10 +40,7 @@ import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by Eliza Liu on 2018/3/4
@@ -311,6 +308,19 @@ public class OrderServiceImpl implements IOrderService{
 
     }
 
+    /**
+     * 通过orderNo获得此订单内的订单项
+     * @param orderNo
+     * @return
+     */
+    public ServerResponse<List<OrderItem>> getOrderItems(Long orderNo){
+        List<OrderItem> orderItemList = orderItemMapper.getByOrderNo(orderNo);
+        if(orderItemList == null){
+            return ServerResponse.createByErrorMessage("无此订单或订单内无商品");
+        }
+        return ServerResponse.createBySuccess(orderItemList);
+    }
+
     public ServerResponse<PageInfo> getOrderList(Integer userId,int pageNum,int pageSize){
         PageHelper.startPage(pageNum,pageSize);
         List<Order> orderList = orderMapper.selectByUserId(userId);
@@ -353,6 +363,25 @@ public class OrderServiceImpl implements IOrderService{
     }
 
 
+    public ServerResponse<PageInfo> manageListByOwnerId(Integer userId,int pageNum, int pageSize){
+        PageHelper.startPage(pageNum,pageSize);
+
+        List<Integer> productIds = productMapper.selectProductIdsByOwnerId(userId);
+        List<Long> orderNos = orderItemMapper.selectOrderNosByProductIds(productIds);
+        List<Order> orderList = orderMapper.selectAllOrderByOrderNos(orderNos);
+
+        List<OrderVo> orderVoList = this.assembleOrderVoList(orderList,null); //调用上面那个
+        PageInfo pageResult = new PageInfo(orderList);
+        pageResult.setList(orderVoList);
+
+        return ServerResponse.createBySuccess(pageResult);
+    }
+
+    /**
+     * 还有瑕疵，横向越权了
+     * @param orderNo
+     * @return
+     */
     public ServerResponse<OrderVo> manageDetail(Long orderNo){
         Order order = orderMapper.selectByOrderNo(orderNo);
         if(order == null){
@@ -409,7 +438,7 @@ public class OrderServiceImpl implements IOrderService{
             String outTradeNo = order.getOrderNo().toString();
 
             // (必填) 订单标题，粗略描述用户的支付目的。如“xxx品牌xxx门店当面付扫码消费”
-            String subject = new StringBuilder().append("happyMall扫码支付，订单号是：" ) .append(outTradeNo).toString();
+            String subject = new StringBuilder().append("TodayMore扫码支付，订单号是：" ) .append(outTradeNo).toString();
 
             // (必填) 订单总金额，单位为元，不能超过1亿元
             // 如果同时传入了【打折金额】,【不可打折金额】,【订单总金额】三者,则必须满足如下条件:【订单总金额】=【打折金额】+【不可打折金额】
@@ -491,7 +520,7 @@ public class OrderServiceImpl implements IOrderService{
                     /*
                     根据订单号生成二维码路径
                      */
-                    String qrPath = String.format(path+"/qr-%s.png",
+                    String qrPath = String.format(path+"\\qr-%s.png",
                             response.getOutTradeNo());
                     String qrFileName = String.format("qr-%s.png", response.getOutTradeNo());
                     /**

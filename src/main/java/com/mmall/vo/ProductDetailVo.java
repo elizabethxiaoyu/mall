@@ -19,6 +19,7 @@ public class ProductDetailVo {
     private Integer status;
     private String createTime;
     private String updateTime;
+    private Integer ownerId;
 
     private String imageHost;
     private Integer parentCategoryId;
@@ -125,6 +126,14 @@ public class ProductDetailVo {
 
     public void setImageHost(String imageHost) {
         this.imageHost = imageHost;
+    }
+
+    public Integer getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
     }
 
     public Integer getParentCategoryId() {

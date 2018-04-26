@@ -26,7 +26,11 @@ public class OrderItem {
 
     private Date updateTime;
 
-    public OrderItem(Integer id, Integer userId, Long orderNo, Integer productId, String productName, String productImage, BigDecimal currentUnitPrice, Integer quantity, BigDecimal totalPrice, Date createTime, Date updateTime) {
+    private Integer status;
+
+    private Date send_time;
+
+    public OrderItem(Integer id, Integer userId, Long orderNo, Integer productId, String productName, String productImage, BigDecimal currentUnitPrice, Integer quantity, BigDecimal totalPrice, Date createTime, Date updateTime, Integer status, Date send_time) {
         this.id = id;
         this.userId = userId;
         this.orderNo = orderNo;
@@ -38,6 +42,8 @@ public class OrderItem {
         this.totalPrice = totalPrice;
         this.createTime = createTime;
         this.updateTime = updateTime;
+        this.status = status;
+        this.send_time = send_time;
     }
 
     public OrderItem() {
@@ -130,5 +136,21 @@ public class OrderItem {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Date getSend_time() {
+        return send_time;
+    }
+
+    public void setSend_time(Date send_time) {
+        this.send_time = send_time;
     }
 }

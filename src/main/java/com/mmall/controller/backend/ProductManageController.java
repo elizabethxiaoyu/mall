@@ -1,5 +1,6 @@
 package com.mmall.controller.backend;
 
+import com.github.pagehelper.PageInfo;
 import com.google.common.collect.Maps;
 import com.mmall.common.Const;
 import com.mmall.common.ResponseCode;
@@ -35,11 +36,12 @@ public class ProductManageController {
     @Autowired
     private IUserService iUserService;
 
-    @Autowired
-    private IProductService iProductService;
 
     @Autowired
     private IFileService iFileService;
+
+    @Autowired
+    private IProductService iProductService;
 
     @RequestMapping("save.do")
     @ResponseBody
@@ -48,13 +50,12 @@ public class ProductManageController {
         if(user ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录管理员");
         }
-        if(iUserService.checkAdminRole(user).isSuccess()){
+        product.setOwnerId(user.getId());
+
             //填充增加产品的逻辑
             return iProductService.saveOrUpdateProduct(product);
 
-        }else{
-            return ServerResponse.createByErrorMessage("无权限操作");
-        }
+
     }
 
     @RequestMapping("set_sale_status.do")
@@ -64,8 +65,9 @@ public class ProductManageController {
         if(user ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录管理员");
         }
-        if(iUserService.checkAdminRole(user).isSuccess()){
-            //填充增加产品的逻辑
+        //是该用户上传的产品
+        if(user.getId().equals(iProductService.getOwnerId(productId).getData())){
+
             return iProductService.setSaleStatus(productId,status);
 
         }else{
@@ -80,8 +82,10 @@ public class ProductManageController {
         if(user ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录管理员");
         }
-        if(iUserService.checkAdminRole(user).isSuccess()){
-            //填充增加产品的逻辑
+
+        //是属于该用户上传的产品
+        if(user.getId().intValue()==iProductService.getOwnerId(productId).getData().intValue()){
+
             return iProductService.manageProductDetail(productId);
 
         }else{
@@ -91,19 +95,15 @@ public class ProductManageController {
 
     @RequestMapping("list.do")
     @ResponseBody
-    public ServerResponse getList(HttpSession session, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize){
+    public ServerResponse<PageInfo> getList(HttpSession session, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize){
         User user = (User)session.getAttribute(Const.CURRENT_USER);
         if(user ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录管理员");
         }
-        if(iUserService.checkAdminRole(user).isSuccess()){
-            //填充增加产品的逻辑
-            //有分页，执行sql语句时因为有了mybatis的分页器，可以自动将分页的sql语句执行了，
-            return iProductService.getProductList(pageNum,pageSize);
 
-        }else{
-            return ServerResponse.createByErrorMessage("无权限操作");
-        }
+            //有分页，执行sql语句时因为有了mybatis的分页器，可以自动将分页的sql语句执行了，
+            return iProductService.getProductListByOwnerId(user.getId(),pageNum,pageSize);
+
     }
 
     @RequestMapping("search.do")
@@ -113,7 +113,7 @@ public class ProductManageController {
         if(user ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录管理员");
         }
-        if(iUserService.checkAdminRole(user).isSuccess()){
+        if(user.getId().equals(iProductService.getOwnerId(productId).getData())){
             return iProductService.searchProduct(productName,productId,pageNum,pageSize);
 
         }else{
@@ -128,18 +128,16 @@ public class ProductManageController {
         if(user ==null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录管理员");
         }
-        if(iUserService.checkAdminRole(user).isSuccess()){
+
             String path = request.getSession().getServletContext().getRealPath("update");
             String targetFileName = iFileService.upload(file,path);
+
             String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+ targetFileName;
             Map fileMap = Maps.newHashMap();
             fileMap.put("uri",targetFileName);
             fileMap.put("url",url);
             return ServerResponse.createBySuccess(fileMap);
 
-        }else{
-            return ServerResponse.createByErrorMessage("无权限操作");
-        }
     }
 
     @RequestMapping("richtext_img_upload.do")
@@ -154,7 +152,7 @@ public class ProductManageController {
 
         }
         //富文本中对于返回值有自己的要求，使用的是simditor，
-        if(iUserService.checkAdminRole(user).isSuccess()){
+
 
             String path = request.getSession().getServletContext().getRealPath("update");
             String targetFileName = iFileService.upload(file,path);
@@ -171,10 +169,5 @@ public class ProductManageController {
             response.setHeader("Access-Control-Allow-Headers","X-File-Name");
             return resultMap;
 
-        }else{
-            resultMap.put("sucess",false);
-            resultMap.put("msg","无权限操作");
-            return resultMap;
-        }
     }
 }

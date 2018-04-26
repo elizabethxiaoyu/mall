@@ -11,6 +11,8 @@ public class OrderItemVo {
 
     private Long orderNo;
 
+    private Integer orderItemNo;
+
     private Integer productId;
 
     private String productName;
@@ -24,6 +26,10 @@ public class OrderItemVo {
     private BigDecimal totalPrice;
 
     private String createTime;
+
+    private Integer status;
+
+    private String send_time;
 
     public Long getOrderNo() {
         return orderNo;
@@ -87,5 +93,29 @@ public class OrderItemVo {
 
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getSend_time() {
+        return send_time;
+    }
+
+    public void setSend_time(String send_time) {
+        this.send_time = send_time;
+    }
+
+    public Integer getOrderItemNo() {
+        return orderItemNo;
+    }
+
+    public void setOrderItemNo(Integer orderItemNo) {
+        this.orderItemNo = orderItemNo;
     }
 }

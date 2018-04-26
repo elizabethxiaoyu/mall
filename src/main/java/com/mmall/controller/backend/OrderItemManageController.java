@@ -1,16 +1,20 @@
 package com.mmall.controller.backend;
 
-
 import com.github.pagehelper.PageInfo;
 import com.mmall.common.Const;
 import com.mmall.common.ResponseCode;
 import com.mmall.common.ServerResponse;
+import com.mmall.dao.ProductMapper;
 import com.mmall.pojo.OrderItem;
+import com.mmall.pojo.Product;
 import com.mmall.pojo.User;
+import com.mmall.service.IOrderItemService;
 import com.mmall.service.IOrderService;
 import com.mmall.service.IProductService;
 import com.mmall.service.IUserService;
+import com.mmall.vo.OrderItemVo;
 import com.mmall.vo.OrderVo;
+import com.mmall.vo.ProductDetailVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,13 +25,12 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
- * Created by Eliza Liu on 2018/3/31
+ * Created by Eliza Liu on 2018/4/24
  */
 @Controller
-@RequestMapping("/manage/order")
-public class OrderManageController {
+@RequestMapping("/manage/orderitem")
 
-
+public class OrderItemManageController {
     @Autowired
     private IUserService iUserService;
 
@@ -37,37 +40,41 @@ public class OrderManageController {
     @Autowired
     private IProductService iProductService;
 
+    @Autowired
+    private IOrderItemService iOrderItemService;
+
+    @Autowired
+    private ProductMapper productMapper;
     @RequestMapping("list.do")
     @ResponseBody
-    public ServerResponse<PageInfo> orderList(HttpSession session, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum, @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
+    public ServerResponse<PageInfo> orderItemList(HttpSession session, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum, @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if(user == null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getDesc());
 
         }
-            return iOrderService.manageListByOwnerId(user.getId(),pageNum,pageSize);
+        return iOrderItemService.manageListByOwnerId(user.getId(),pageNum,pageSize);
 
     }
 
     /**
      * 注意横向越权
      * @param session
-     * @param orderNo
+     * @param orderItemNo
      * @return
      */
     @RequestMapping("detail.do")
     @ResponseBody
-    public ServerResponse<OrderVo> detail(HttpSession session, Long orderNo){
+    public ServerResponse<OrderItemVo> detail(HttpSession session, Integer orderItemNo){
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if(user == null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getDesc());
-
         }
 
-        if(isValid(user.getId(),orderNo)){
-            return iOrderService.manageDetail(orderNo);
+        if(isValid(user.getId(),orderItemNo)){
+            return iOrderItemService.manageDetail(orderItemNo);
         }else{
-            return ServerResponse.createByErrorMessage("无权限操作，需要管理员权限");
+            return ServerResponse.createByErrorMessage("无权限操作");
         }
 
     }
@@ -75,23 +82,21 @@ public class OrderManageController {
     /**
      * 注意横向越权
      * @param session
-     * @param orderNo
-     * @param pageNum
-     * @param pageSize
+     * @param orderItemNo
      * @return
      */
     @RequestMapping("search.do")
     @ResponseBody
-    public ServerResponse<PageInfo> search(HttpSession session, Long orderNo, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum, @RequestParam(value = "pageSize",defaultValue = "10") int pageSize){
+    public ServerResponse<OrderItemVo> search(HttpSession session, Integer orderItemNo){
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if(user == null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getDesc());
 
         }
 
-        if(isValid(user.getId(),orderNo)){
-            //是管理员，增加逻辑
-            return iOrderService.manageSearch(orderNo,pageNum,pageSize);
+        if(isValid(user.getId(),orderItemNo)){
+            //是该商品的管理员，增加逻辑
+            return iOrderItemService.manageSearch(orderItemNo);
 
         }else{
             return ServerResponse.createByErrorMessage("无权限操作");
@@ -101,15 +106,15 @@ public class OrderManageController {
 
     @RequestMapping("send_goods.do")
     @ResponseBody
-    public ServerResponse<String> orderSendGoods (HttpSession session, Long orderNo){
+    public ServerResponse<String> orderSendGoods (HttpSession session, Long orderNo, Integer orderItemNo){
         User user = (User) session.getAttribute(Const.CURRENT_USER);
         if(user == null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),ResponseCode.NEED_LOGIN.getDesc());
 
         }
 
-        if(isValid(user.getId(),orderNo)){
-            return iOrderService.manageSendGoods(orderNo);
+        if(isValid(user.getId(),orderItemNo)){
+            return iOrderItemService.manageSendGoods(orderNo,orderItemNo);
         }else{
             return ServerResponse.createByErrorMessage("无权限操作");
         }
@@ -119,20 +124,20 @@ public class OrderManageController {
     /**
      * 权限判断
      * @param ownerId
-     * @param orderNo
+     * @param orderItemNo
      * @return
      */
-    private boolean isValid(Integer ownerId, Long orderNo){
+    private boolean isValid(Integer ownerId, Integer orderItemNo){
         boolean valid = false;
-        List<OrderItem> orderItemList = iOrderService.getOrderItems(orderNo).getData();
 
-        for(OrderItem orderItem : orderItemList){
-            if( iProductService.getOwnerId(orderItem.getProductId()).getData() == ownerId)
-                return true;
-        }
+        Integer productId = iOrderItemService.selectProductIdByOrderItem(orderItemNo).getData();
+
+        Product product = productMapper.selectByPrimaryKey(productId);
+
+        if(product.getOwnerId() == ownerId)
+            return true;
         return false;
 
     }
-
 
 }

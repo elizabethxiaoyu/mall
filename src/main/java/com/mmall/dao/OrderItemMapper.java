@@ -4,6 +4,7 @@ import com.mmall.pojo.OrderItem;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Set;
 
 public interface OrderItemMapper {
     int deleteByPrimaryKey(Integer id);
@@ -25,6 +26,8 @@ public interface OrderItemMapper {
 
     void batchInsert(@Param("orderItemList") List<OrderItem> orderItemList);
 
+    List<Long> selectOrderNosByProductIds(@Param("productIds") List<Integer> productIds);
 
+    List<OrderItem> selectByProductIds(@Param("productList") List<Integer> productList);
 
 }

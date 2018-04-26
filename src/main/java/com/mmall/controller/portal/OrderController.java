@@ -161,7 +161,7 @@ public class OrderController {
             e.printStackTrace();
         }
         //todo 这里我不知道对不对
-        return ServerResponse.createByErrorMessage("回调hhhhhh错误");
+        return ServerResponse.createByErrorMessage("回调错误");
     }
 
     @RequestMapping("query_order_pay_status.do")

@@ -20,6 +20,7 @@ public class CartProductVo {
     private Integer productStock;       //商品的库存
     private Integer productChecked;  //此商品是否勾选
     private String productSubTitie;
+    private Integer ownerId;
     private String limitQuantity;      //限制数量的一个返回结果
 
     public String getProductSubTitie() {
@@ -124,5 +125,13 @@ public class CartProductVo {
 
     public void setLimitQuantity(String limitQuantity) {
         this.limitQuantity = limitQuantity;
+    }
+
+    public Integer getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
     }
 }

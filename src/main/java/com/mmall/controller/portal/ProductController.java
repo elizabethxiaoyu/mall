@@ -32,7 +32,7 @@ public class ProductController {
                                          @RequestParam(value = "categoryId",required = false)Integer categoryId,
                                          @RequestParam(value = "pageNum" ,defaultValue = "1") int pageNum,
                                          @RequestParam(value = "pageSize" ,defaultValue ="10" ) int pageSize,
-                                        @RequestParam(value ="orderBy",defaultValue = "") String orderBy){
+                                        @RequestParam(value ="orderBy",defaultValue = "price_desc") String orderBy){
         return iProductService.getProductByKeywordCategory(keyword,categoryId,pageNum,pageSize,orderBy);
     }
 }

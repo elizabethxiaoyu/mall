@@ -67,6 +67,10 @@ public class ProductServiceImpl implements IProductService {
 
     }
 
+    public ServerResponse<Integer> getOwnerId(Integer productId){
+        return ServerResponse.createBySuccess(productMapper.selectOwnerIdByProductId(productId));
+    }
+
     public ServerResponse<String> setSaleStatus(Integer productId, Integer status){
         if(productId == null || status == null){
             return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
@@ -146,6 +150,25 @@ public class ProductServiceImpl implements IProductService {
         return ServerResponse.createBySuccess(pageResult);
     }
 
+    public ServerResponse<PageInfo> getProductListByOwnerId(Integer userId,int pageNum, int pageSize){
+        //startPage
+        //填充自己的sql查询逻辑
+        //pageHelper 收尾
+        PageHelper.startPage(pageNum,pageSize);
+
+        List<Product> productList = productMapper.selectListByOwnerId(userId);
+        List<ProductListVo> productListVoList = Lists.newArrayList();
+        System.out.println("productList:  " + productList.size()  );
+
+        for(Product productItem : productList){
+            ProductListVo productListVo = assessmbleProductListVo(productItem);
+            productListVoList.add(productListVo);
+        }
+
+        PageInfo pageResult = new PageInfo(productList);
+        pageResult.setList(productListVoList);
+        return ServerResponse.createBySuccess(pageResult);
+    }
     private ProductListVo assessmbleProductListVo(Product product){
         ProductListVo productListVo = new ProductListVo();
         productListVo.setId(product.getId());
@@ -156,6 +179,7 @@ public class ProductServiceImpl implements IProductService {
         productListVo.setSubtitle(product.getSubtitle());
         productListVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix","http://img.happymmall.com/"));
         productListVo.setPrice(product.getPrice());
+        productListVo.setOwnerId(product.getOwnerId());
         return productListVo;
     }
 
