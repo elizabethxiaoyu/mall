@@ -32,3 +32,8 @@ target/
 #system ignore
 .DS_Store
 Thumbs.db
+
+#project ignore
+src/main/resources/datasource.properties
+src/main/resources/applicationContext-datasource.xml
+src/main/resources/mmall.properties

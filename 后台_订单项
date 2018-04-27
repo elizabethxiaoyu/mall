@@ -1,0 +1,202 @@
+# 后台-订单项（卖家主要通过此发货）
+## 1.订单项列表
+/manage/orderitem/list.do
+
+http://localhost:8088/manage/orderitem/list.do?pageSize=3
+
+> request
+>>   pageSize(default=10)、pageNum(default=1)
+
+> response
+>>  fail
+```json
+{
+    "status": 10,
+    "msg": "用户未登录,请登录"
+}
+```
+或
+```json
+{
+  "status": 1,
+  "msg": "没有权限"
+}
+```
+success
+```json
+{
+  "status": 0,
+  "data":{
+    "pageNum": 1,
+    "pageSize": 2,
+    "size": 2,
+    "orderBy": null,
+    "startRow": 0,
+    "endRow": 1,
+    "total": 2,
+    "pages": 1,
+    "list":[
+              {
+                "orderNo": 1524388049926,
+                "orderItemNo": 143,
+                "productId": 31,
+                "productName": "高数上",
+                "productImage": "test.jpg",
+                "currentUnitPrice": 1000,
+                "quantity": 2,
+                "totalPrice": 2000,
+                "createTime": "2018-04-22 17:07:29",
+                "status": null,
+                "send_time": ""
+              },
+              {
+                "orderNo": 1524744534755,
+                "orderItemNo": 144,
+                "productId": 32,
+                "productName": "深入理解java虚拟机",
+                "productImage": "test.jpg",
+                "currentUnitPrice": 1000,
+                "quantity": 2,
+                "totalPrice": 2000,
+                "createTime": "2018-04-26 20:08:54",
+                "status": null,
+                "send_time": ""
+              }
+            ],
+    "firstPage": 1,
+    "prePage": 0,
+    "nextPage": 0,
+    "lastPage": 1,
+    "isFirstPage": true,
+    "isLastPage": true,
+    "hasPreviousPage": false,
+    "hasNextPage": false,
+    "navigatePages": 8,
+    "navigatepageNums":[
+      1
+    ]
+  }
+}
+```
+
+
+## 2.按订单项id查找
+
+/manage/orderitem/search.do
+
+
+http://localhost:8088/manage/orderitem/search.do?orderItemNo=143
+
+
+> request
+>>   orderItemNo
+
+
+> response
+>>  fail
+```json
+{
+  "status": 1,
+  "msg": "此订单项不存在"
+}
+```
+或
+```json
+{
+  "status": 1,
+  "msg": "无权限操作"
+}
+```
+  success
+```json
+{
+  "status": 0,
+  "data":{
+    "orderNo": 1524388049926,
+    "orderItemNo": 143,
+    "productId": 31,
+    "productName": "高数上",
+    "productImage": "test.jpg",
+    "currentUnitPrice": 1000,
+    "quantity": 2,
+    "totalPrice": 2000,
+    "createTime": "2018-04-22 17:07:29",
+    "status": null,
+    "send_time": ""
+  }
+}
+```
+
+## 3.订单详情
+/manage/orderitem/detail.do
+
+http://localhost:8088/manage/orderitem/detail.do?orderItemNo=143
+> request
+>>  orderItemNo
+
+> response
+>>  fail
+```json
+{
+  "status": 1,
+  "msg": "此订单项不存在"
+}
+```
+或
+```json
+{
+  "status": 1,
+  "msg": "无权限操作"
+}
+```
+  success
+```json
+{
+  "status": 0,
+  "data":{
+    "orderNo": 1524388049926,
+    "orderItemNo": 143,
+    "productId": 31,
+    "productName": "高数上",
+    "productImage": "test.jpg",
+    "currentUnitPrice": 1000,
+    "quantity": 2,
+    "totalPrice": 2000,
+    "createTime": "2018-04-22 17:07:29",
+    "status": null,
+    "send_time": ""
+  }
+}
+```
+
+
+## 4.订单发货
+/manage/orderitem/send_goods.do
+
+http://localhost:8088/manage/order/send_goods.do?orderNo=1524388049926&orderItemNo=143
+> request
+>> orderNo, orderItemNo
+
+
+> response
+>>  fail
+```json
+{
+  "status": 1,
+  "msg": "发货失败"
+}
+```
+或
+```json
+{
+  "status": 1,
+  "msg": "无权限操作"
+}
+```
+success
+```json
+{
+  "status": 0,
+  "data": "发货成功"
+}
+```

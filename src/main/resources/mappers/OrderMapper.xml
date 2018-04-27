@@ -233,4 +233,18 @@
     order by create_time desc
 
   </select>
+
+  <select id="selectAllOrderByOrderNos" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from mmall_order
+    where order_no in
+    <foreach collection="list" item="orderNo" index="index"
+             open="(" close=")" separator=",">
+      #{orderNo}
+    </foreach>
+    order by create_time desc
+
+  </select>
+
 </mapper>
