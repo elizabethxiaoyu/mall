@@ -6,6 +6,19 @@
 
     <display-name>Archetype Created Web Application</display-name>
 
+
+    <!--配置过滤器-->
+    <filter>
+        <filter-name>CommonSetFilter</filter-name>
+        <filter-class>com.mmall.util.CommonSetFilter</filter-class>
+    </filter>
+    <!--映射过滤器-->
+    <filter-mapping>
+        <filter-name>CommonSetFilter</filter-name>
+        <!--“/*”表示拦截所有的请求 -->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -22,6 +35,8 @@
         <filter-name>characterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+
 
 
     <listener>
