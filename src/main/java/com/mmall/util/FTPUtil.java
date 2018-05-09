@@ -65,7 +65,9 @@ public class FTPUtil {
                 System.out.println();
                 for(File fileItem : fileList){
                     fis = new FileInputStream(fileItem);
-                    ftpClient.storeFile(fileItem.getName(),fis);
+                    logger.info("文件"+fileItem.getName() +"正在上传");
+                    ftpClient.storeFile(remotePath+fileItem.getName(),fis);
+
                     logger.info("当前文件上传完毕");
                 }
             } catch (IOException e) {
