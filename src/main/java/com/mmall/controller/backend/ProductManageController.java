@@ -129,16 +129,35 @@ public class ProductManageController {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录管理员");
         }
 
-            String path = request.getSession().getServletContext().getRealPath("update");
-            String targetFileName = iFileService.upload(file,path);
+        String path = request.getSession().getServletContext().getRealPath("update");
+        String targetFileName = iFileService.upload(file,path);
 
-            String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+ targetFileName;
-            Map fileMap = Maps.newHashMap();
-            fileMap.put("uri",targetFileName);
-            fileMap.put("url",url);
-            return ServerResponse.createBySuccess(fileMap);
+        String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+ targetFileName;
+        Map fileMap = Maps.newHashMap();
+        fileMap.put("uri",targetFileName);
+        fileMap.put("url",url);
+        return ServerResponse.createBySuccess(fileMap);
 
     }
+
+//    @RequestMapping("upload_img.do")
+//    @ResponseBody
+//    public ServerResponse upload_img(HttpSession session,@RequestParam(value = "upload_file", required = false) MultipartFile file, HttpServletRequest request){
+//        User user = (User)session.getAttribute(Const.CURRENT_USER);
+//        if(user ==null){
+//            return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(),"用户未登录，请登录管理员");
+//        }
+//
+//        String path = request.getSession().getServletContext().getRealPath("update");
+//        String targetFileName = iFileService.upload(file,path);
+//
+//        String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+ targetFileName;
+//        Map fileMap = Maps.newHashMap();
+//        fileMap.put("uri",targetFileName);
+//        fileMap.put("url",url);
+//        return ServerResponse.createBySuccess(fileMap);
+//
+//    }
 
     @RequestMapping("richtext_img_upload.do")
     @ResponseBody

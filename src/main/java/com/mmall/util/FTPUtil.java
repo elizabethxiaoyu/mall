@@ -37,7 +37,7 @@ public class FTPUtil {
         FTPUtil ftpUtil = new FTPUtil(ftpIp,21,ftpUser,ftpPassword);
         logger.info("开始连接FTP服务器");
         boolean result = ftpUtil.uploadFile("/home/uftp2/img",fileList);
-        logger.info("开始连接ftp服务器，结束上传，上传结果：{}");
+        logger.info("开始连接ftp服务器，结束上传，上传结果：{"+ result+"}");
         return result;
     }
 
@@ -58,7 +58,8 @@ public class FTPUtil {
                 ftpClient.setBufferSize(1024);
                 ftpClient.setControlEncoding("UTF-8");
                 ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);//可以防止乱码
-                ftpClient.enterLocalPassiveMode();//打开本地的被动模式
+                //ftpClient.enterLocalPassiveMode();//打开本地的被动模式
+                ftpClient.enterLocalActiveMode();
                 System.out.println();
                 for(File fileItem : fileList){
                     fis = new FileInputStream(fileItem);
