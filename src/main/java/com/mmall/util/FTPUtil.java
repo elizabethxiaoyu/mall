@@ -55,6 +55,7 @@ public class FTPUtil {
             //通过ftp客户端对象上传文件
             try {
                 ftpClient.changeWorkingDirectory(remotePath);
+                logger.info("ftpClient当前目录："+ ftpClient.printWorkingDirectory());
                 ftpClient.setBufferSize(1024);
                 ftpClient.setControlEncoding("UTF-8");
                 ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);//可以防止乱码
