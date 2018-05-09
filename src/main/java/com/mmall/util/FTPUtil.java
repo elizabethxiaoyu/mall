@@ -37,7 +37,7 @@ public class FTPUtil {
         FTPUtil ftpUtil = new FTPUtil(ftpIp,21,ftpUser,ftpPassword);
         logger.info("开始连接FTP服务器");
         logger.info("有" + fileList.size() +"个文件待上传到ftp服务器");
-        boolean result = ftpUtil.uploadFile("/home/uftp2/img",fileList);
+        boolean result = ftpUtil.uploadFile("/home/uftp2/img/",fileList);
         logger.info("开始连接ftp服务器，结束上传，上传结果：{"+ result+"}");
         return result;
     }
@@ -65,7 +65,7 @@ public class FTPUtil {
                 System.out.println();
                 for(File fileItem : fileList){
                     fis = new FileInputStream(fileItem);
-                    logger.info("文件"+fileItem.getName() +"正在上传");
+                    logger.info("文件"+ remotePath+fileItem.getName() +"正在上传");
                     ftpClient.storeFile(remotePath+fileItem.getName(),fis);
 
                     logger.info("当前文件上传完毕");
