@@ -61,7 +61,7 @@ public class FTPUtil {
                 ftpClient.setControlEncoding("UTF-8");
                 ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);//可以防止乱码
                 //ftpClient.enterLocalPassiveMode();//打开本地的被动模式
-                ftpClient.enterLocalActiveMode();
+                //ftpClient.enterLocalActiveMode();
                 System.out.println();
                 for(File fileItem : fileList){
                     fis = new FileInputStream(fileItem);
