@@ -61,14 +61,14 @@ public class FTPUtil {
                 ftpClient.setControlEncoding("UTF-8");
                 ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);//可以防止乱码
                 //ftpClient.enterLocalPassiveMode();//打开本地的被动模式
-                //ftpClient.enterLocalActiveMode();
+                ftpClient.enterLocalActiveMode();
                 System.out.println();
                 for(File fileItem : fileList){
                     fis = new FileInputStream(fileItem);
                     logger.info("文件"+ remotePath+fileItem.getName() +"正在上传");
-                    ftpClient.storeFile(new String((remotePath+fileItem.getName()).getBytes("UTF-8"),"iso-8859-1"),fis);
+                    boolean result = ftpClient.storeFile(new String((remotePath+fileItem.getName()).getBytes("UTF-8"),"iso-8859-1"),fis);
 
-                    logger.info("当前文件上传完毕");
+                    logger.info("当前文件上传完毕" + result);
                 }
             } catch (IOException e) {
                 logger.error("上传文件异常",e);
