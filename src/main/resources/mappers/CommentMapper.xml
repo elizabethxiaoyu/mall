@@ -6,7 +6,7 @@
       <idArg column="comment_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="product_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="order_id" javaType="java.lang.Long" jdbcType="Long" />
+      <arg column="order_id" javaType="java.lang.Long" jdbcType="BIGINT" />
       <arg column="content" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="images" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
@@ -30,7 +30,7 @@
     insert into mmall_comment (comment_id, user_id, product_id,
       order_id, content, images)
     values (#{commentId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER},
-      #{order_id,jdbcType=Long}, #{content,jdbcType=VARCHAR}), #{images,jdbcType=VARCHAR}
+      #{order_id,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}), #{images,jdbcType=VARCHAR}
   </insert>
   <insert id="insertSelective" parameterType="com.mmall.pojo.Comment">
     insert into mmall_comment
@@ -65,7 +65,7 @@
         #{productId,jdbcType=INTEGER},
       </if>
       <if test="orderId != null">
-        #{orderId,jdbcType=Long},
+        #{orderId,jdbcType=BIGINT},
       </if>
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
@@ -87,7 +87,7 @@
         product_id = #{productId,jdbcType=INTEGER},
       </if>
       <if test="orderId != null">
-        order_id = #{orderId,jdbcType=Long},
+        order_id = #{orderId,jdbcType=BIGINT},
       </if>
       <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
@@ -103,7 +103,7 @@
     update mmall_comment
     set user_id = #{userId,jdbcType=INTEGER},
       product_id = #{productId,jdbcType=INTEGER},
-      order_id = #{orderId,jdbcType=Long},
+      order_id = #{orderId,jdbcType=BIGINT},
       content = #{content,jdbcType=VARCHAR},
       images = #{images,jdbcType=VARCHAR}
     where comment_id = #{commentId,jdbcType=INTEGER}
@@ -117,7 +117,7 @@
 
   </select>
 
-  <delete id="deleteByUserIdProductId" parameterType="map"  >
+  <delete id="deleteByUserIdProductId" parameterType="map" >
      delete from mmall_comment
       where user_id = #{userId,jdbcType=INTEGER}
       and product_id = #{productId,jdbcType=INTEGER}

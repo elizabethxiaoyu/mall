@@ -73,29 +73,5 @@ public class Comment {
         this.images = images;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Comment comment = (Comment) o;
-
-        if (!commentId.equals(comment.commentId)) return false;
-        if (orderId != null ? !orderId.equals(comment.orderId) : comment.orderId != null) return false;
-        if (userId != null ? !userId.equals(comment.userId) : comment.userId != null) return false;
-        if (productId != null ? !productId.equals(comment.productId) : comment.productId != null) return false;
-        if (content != null ? !content.equals(comment.content) : comment.content != null) return false;
-        return images != null ? images.equals(comment.images) : comment.images == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = commentId.hashCode();
-        result = 31 * result + (orderId != null ? orderId.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
-        result = 31 * result + (productId != null ? productId.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + (images != null ? images.hashCode() : 0);
-        return result;
-    }
 }

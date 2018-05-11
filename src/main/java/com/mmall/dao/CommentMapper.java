@@ -1,6 +1,5 @@
 package com.mmall.dao;
 
-import com.mmall.pojo.Cart;
 import com.mmall.pojo.Comment;
 import org.apache.ibatis.annotations.Param;
 
