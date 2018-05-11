@@ -53,7 +53,7 @@ public class CommentServiceImpl implements ICommentService {
                     return ServerResponse.createBySuccess("更新评论成功");
                 return ServerResponse.createByErrorMessage("更新评论失败");
             }else{
-                int rowCount = commentMapper.insert(comment);
+                int rowCount = commentMapper.insertSelective(comment);
                 if(rowCount > 0)
                     return ServerResponse.createBySuccess("新增评论成功");
                 return ServerResponse.createByErrorMessage("新增评论失败");
@@ -78,7 +78,7 @@ public class CommentServiceImpl implements ICommentService {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
         }
         commentMapper.deleteByUserIdProductId(userId,productId);
-        return ServerResponse.createBySuccess("删除评论成功");
+        return commentList(2,10,productId);
     }
 
 

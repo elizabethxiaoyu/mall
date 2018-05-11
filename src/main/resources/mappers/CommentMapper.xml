@@ -18,19 +18,19 @@
     select 
     <include refid="Base_Column_List" />
     from mmall_comment
-    where comment_id = #{id,jdbcType=INTEGER}
+    where comment_id = #{commentId,jdbcType=INTEGER}
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from mmall_comment
-    where comment_id = #{id,jdbcType=INTEGER}
+    where comment_id = #{commentId,jdbcType=INTEGER}
   </delete>
 
   <insert id="insert" parameterType="com.mmall.pojo.Comment">
     insert into mmall_comment (comment_id, user_id, product_id,
       order_id, content, images)
     values (#{commentId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER},
-      #{order_id,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}), #{images,jdbcType=VARCHAR}
+      #{order_id,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}), #{images,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.mmall.pojo.Comment">
     insert into mmall_comment
@@ -55,8 +55,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="contentId != null">
-        #{contentId,jdbcType=INTEGER},
+      <if test="commentId != null">
+        #{commentId,jdbcType=INTEGER},
       </if>
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},

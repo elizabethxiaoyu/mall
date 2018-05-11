@@ -12,7 +12,7 @@ public class Comment {
     private String content;
     private String images;
 
-    public Comment(Integer commentId, Long orderId, Integer userId, Integer productId, String content, String images) {
+    public Comment(Integer commentId, Integer userId, Integer productId,  Long orderId, String content, String images) {
         this.commentId = commentId;
         this.orderId = orderId;
         this.userId = userId;
@@ -20,6 +20,8 @@ public class Comment {
         this.content = content;
         this.images = images;
     }
+
+
 
     public Comment() {
         super();
