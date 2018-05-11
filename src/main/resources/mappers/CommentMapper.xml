@@ -30,7 +30,7 @@
     insert into mmall_comment (comment_id, user_id, product_id,
       order_id, content, images)
     values (#{commentId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER},
-      #{order_id,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}), #{images,jdbcType=VARCHAR})
+      #{orderId,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}), #{images,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.mmall.pojo.Comment">
     insert into mmall_comment
