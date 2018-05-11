@@ -53,7 +53,7 @@ public class CommentServiceImpl implements ICommentService {
                     return ServerResponse.createBySuccess("更新评论成功");
                 return ServerResponse.createByErrorMessage("更新评论失败");
             }else{
-                int rowCount = commentMapper.insertSelective(comment);
+                int rowCount = commentMapper.insert(comment);
                 if(rowCount > 0)
                     return ServerResponse.createBySuccess("新增评论成功");
                 return ServerResponse.createByErrorMessage("新增评论失败");

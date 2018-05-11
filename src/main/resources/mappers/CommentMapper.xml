@@ -34,9 +34,9 @@
   </insert>
   <insert id="insertSelective" parameterType="com.mmall.pojo.Comment">
     insert into mmall_comment
-    comment_id,
-    <trim prefix="(" suffix=")" suffixOverrides=",">
 
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      comment_id,
       <if test="userId != null">
         user_id,
       </if>
