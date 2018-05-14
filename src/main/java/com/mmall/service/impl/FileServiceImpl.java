@@ -38,10 +38,10 @@ public class FileServiceImpl implements IFileService {
 
 
         try {
-            file.transferTo(targetFile);
+           // file.transferTo(targetFile);
             file.transferTo(tempFile);
             logger.info("已暂存在img目录下");
-            FTPUtil.uploadFile(Lists.newArrayList(targetFile));
+            FTPUtil.uploadFile(Lists.newArrayList(tempFile));
             //已经上传到ftp服务器
 
             //targetFile.delete();
