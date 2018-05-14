@@ -34,10 +34,13 @@ public class FileServiceImpl implements IFileService {
 
         }
         File targetFile = new File(path,uploadFileName);
+        File tempFile = new File("/usr/tomcat/apache-tomcat-8.5.29/webapps/ROOT/img/",uploadFileName);
+
 
         try {
             file.transferTo(targetFile);
-
+            file.transferTo(tempFile);
+            logger.info("已暂存在img目录下");
             FTPUtil.uploadFile(Lists.newArrayList(targetFile));
             //已经上传到ftp服务器
 
