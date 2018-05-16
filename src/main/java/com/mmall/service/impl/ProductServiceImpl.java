@@ -223,9 +223,9 @@ public class ProductServiceImpl implements IProductService {
     }
 
     public ServerResponse<PageInfo> getProductByKeywordCategory(String keyword,Integer categoryId, int pageNum, int pageSize,String orderBy){
-        if(StringUtils.isBlank(keyword) && categoryId == null){
-            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
-        }
+//        if(StringUtils.isBlank(keyword) && categoryId == null){
+//            return ServerResponse.createByErrorCodeMessage(ResponseCode.ILLEGAL_ARGUMENT.getCode(),ResponseCode.ILLEGAL_ARGUMENT.getDesc());
+//        }
         List<Integer> categoryIdList = new ArrayList<Integer>(); //这个集合用于当传入的分类是较高层次的分类时，要递归遍历所有的子分类
 
         if(categoryId != null){

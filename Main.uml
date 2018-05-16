@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.alipay.demo.trade.Main</OriginalElement>
+  <nodes>
+    <node x="493.5" y="126.5">com.mmall.service.ICommentService</node>
+    <node x="114.75" y="673.5">com.mmall.service.impl.UserServiceimpl</node>
+    <node x="3922.75" y="696.5">com.mmall.service.impl.OrderItemServiceImpl</node>
+    <node x="2667.0" y="3462.0">com.mmall.dao.ProductMapper</node>
+    <node x="0.0" y="4188.0">com.mmall.dao.CommentMapper</node>
+    <node x="3180.5" y="1324.0">java.lang.Runnable</node>
+    <node x="3081.0" y="1427.0">com.alipay.demo.trade.service.impl.hb.AbsHbRunner</node>
+    <node x="3299.0" y="4188.0">com.mmall.vo.OrderProductVo</node>
+    <node x="1486.0" y="1939.5">com.mmall.common.Const.PaymentTypeEnum</node>
+    <node x="392.0" y="2947.0">com.mmall.vo.OrderVo</node>
+    <node x="3136.0" y="3860.0">com.mmall.pojo.Comment</node>
+    <node x="2890.25" y="731.0">com.mmall.service.impl.ShippingServiceImpl</node>
+    <node x="891.2499999999999" y="1347.0">java.lang.Enum</node>
+    <node x="1047.0" y="3462.0">com.mmall.vo.CartProductVo</node>
+    <node x="0.0" y="2618.0">com.mmall.controller.backend.ProductManageController</node>
+    <node x="2475.0" y="3860.0">com.mmall.pojo.Cart</node>
+    <node x="2248.0" y="2947.0">com.mmall.pojo.Product</node>
+    <node x="3944.0" y="2698.5">com.mmall.controller.portal.ProductController</node>
+    <node x="1766.0" y="4188.0">com.mmall.util.MD5Util</node>
+    <node x="2025.0" y="3860.0">javax.servlet.Filter</node>
+    <node x="2666.0" y="2618.0">com.mmall.controller.portal.CartController</node>
+    <node x="2085.0" y="4188.0">com.mmall.util.BigDecimalUtil</node>
+    <node x="3111.0" y="2710.0">com.mmall.controller.backend.UserManageController</node>
+    <node x="2341.0" y="1975.5">com.mmall.common.Const.Role</node>
+    <node x="0.0" y="3860.0">com.mmall.dao.OrderItemMapper</node>
+    <node x="3277.25" y="639.0">com.mmall.service.impl.ProductServiceImpl</node>
+    <node x="4845.0" y="2618.0">com.mmall.controller.portal.OrderController</node>
+    <node x="2110.0" y="3462.0">com.mmall.pojo.User</node>
+    <node x="1659.0" y="3462.0">com.mmall.dao.CartMapper</node>
+    <node x="914.5" y="115.0">com.mmall.service.ICategoryService</node>
+    <node x="2019.0" y="1952.5">com.mmall.common.Const.AlipayCallback</node>
+    <node x="76.0" y="1255.5">java.io.Serializable</node>
+    <node x="2982.0" y="103.5">com.mmall.service.IShippingService</node>
+    <node x="1626.0" y="2664.0">com.mmall.controller.backend.CategoryManageController</node>
+    <node x="4393.0" y="2641.0">com.mmall.controller.backend.OrderManageController</node>
+    <node x="727.9999999999999" y="1917.0">com.mmall.common.ResponseCode</node>
+    <node x="3093.5" y="1809.0">com.alipay.demo.trade.DemoHbRunner</node>
+    <node x="3001.0" y="2947.0">com.mmall.vo.ProductDetailVo</node>
+    <node x="643.0" y="2664.0">com.mmall.controller.portal.CommentController</node>
+    <node x="287.7499999999999" y="1429.0">org.codehaus.jackson.map.annotate.JsonSerialize</node>
+    <node x="2796.0" y="1987.0">com.mmall.common.Const.ProductListOrderBy</node>
+    <node x="2374.5" y="685.0">com.mmall.service.impl.CartServiceImpl</node>
+    <node x="0.0" y="3462.0">com.mmall.pojo.Shipping</node>
+    <node x="0.0" y="2947.0">com.mmall.util.FTPUtil</node>
+    <node x="857.0" y="3860.0">com.mmall.vo.OrderItemVo</node>
+    <node x="0.0" y="1825.0">com.mmall.common.ServerResponse</node>
+    <node x="970.9999999999999" y="1882.0">com.mmall.common.Const.OrderStatusEnum</node>
+    <node x="3170.0" y="3462.0">com.mmall.pojo.Category</node>
+    <node x="593.75" y="754.0">com.mmall.service.impl.CommentServiceImpl</node>
+    <node x="2012.5" y="0.0">com.mmall.service.IOrderService</node>
+    <node x="2663.0" y="2247.0">org.springframework.web.bind.annotation.RequestMapping</node>
+    <node x="1609.0" y="3860.0">com.mmall.dao.ShippingMapper</node>
+    <node x="376.0" y="4188.0">com.mmall.vo.ShippingVo</node>
+    <node x="1844.5394736842104" y="432.0">com.mmall.service.impl.OrderServiceImpl</node>
+    <node x="2909.0" y="2304.5">org.springframework.stereotype.Controller</node>
+    <node x="2165.0" y="2618.0">com.mmall.controller.backend.OrderItemManageController</node>
+    <node x="2551.0" y="1952.5">com.mmall.common.Const.Cart</node>
+    <node x="3164.0" y="1244.0">java.lang.FunctionalInterface</node>
+    <node x="1412.0" y="4188.0">com.mmall.common.TokenCache</node>
+    <node x="1556.5394736842104" y="777.0">com.mmall.service.impl.FileServiceImpl</node>
+    <node x="1841.0394736842104" y="149.5">org.springframework.stereotype.Service</node>
+    <node x="439.0" y="3860.0">com.mmall.dao.OrderMapper</node>
+    <node x="1060.0" y="4188.0">com.mmall.dao.PayInfoMapper</node>
+    <node x="1230.0" y="1951.5">com.mmall.common.Const.PayPlatformEnum</node>
+    <node x="437.9999999999999" y="1940.5">org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion</node>
+    <node x="2492.0" y="92.0">com.mmall.service.ICartService</node>
+    <node x="2387.0" y="4188.0">com.mmall.util.DateTimeUtil</node>
+    <node x="1115.0" y="3860.0">com.mmall.pojo.PayInfo</node>
+    <node x="3425.25" y="57.5">com.mmall.service.IProductService</node>
+    <node x="1144.0" y="2595.0">com.mmall.controller.portal.UserController</node>
+    <node x="2930.0" y="3860.0">com.mmall.vo.ProductListVo</node>
+    <node x="1465.9605263157894" y="149.5">com.mmall.service.IFileService</node>
+    <node x="1460.0" y="2947.0">com.mmall.pojo.OrderItem</node>
+    <node x="0.0" y="46.0">com.mmall.service.IUserService</node>
+    <node x="1316.0" y="3462.0">com.alipay.demo.trade.Main</node>
+    <node x="3530.0" y="2664.0">com.mmall.controller.portal.ShippingController</node>
+    <node x="2974.0" y="4188.0">com.mmall.vo.CartVo</node>
+    <node x="1752.0" y="1951.5">com.mmall.common.Const.ProductStatusEnum</node>
+    <node x="1954.125" y="1486.5">com.mmall.common.Const</node>
+    <node x="1038.5" y="719.5">com.mmall.service.impl.CategoryServiceImpl</node>
+    <node x="606.0" y="4188.0">com.mmall.dao.CategoryMapper</node>
+    <node x="701.0" y="2947.0">com.mmall.pojo.Order</node>
+    <node x="2671.0" y="4188.0">com.mmall.util.PropertiesUtil</node>
+    <node x="1016.4999999999999" y="1244.0">java.lang.Comparable</node>
+    <node x="663.0" y="3462.0">com.mmall.dao.UserMapper</node>
+    <node x="2025.0" y="4009.0">com.mmall.util.CommonSetFilter</node>
+    <node x="588.9999999999999" y="1963.5">org.codehaus.jackson.map.annotate.JsonSerialize.Typing</node>
+    <node x="4037.25" y="103.5">com.mmall.service.IOrderItemService</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.mmall.controller.portal.ProductController" target="org.springframework.stereotype.Controller">
+      <point x="107.25" y="-50.0" />
+      <point x="4265.75" y="2475.0" />
+      <point x="3020.2727272727275" y="2475.0" />
+      <point x="39.27272727272748" y="26.5" />
+    </edge>
+    <edge source="com.mmall.controller.backend.OrderManageController" target="org.springframework.stereotype.Controller">
+      <point x="108.0" y="-107.5" />
+      <point x="4717.0" y="2455.0" />
+      <point x="3033.3636363636365" y="2455.0" />
+      <point x="52.36363636363649" y="26.5" />
+    </edge>
+    <edge source="com.mmall.util.CommonSetFilter" target="javax.servlet.Filter">
+      <point x="0.0" y="-49.5" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="com.mmall.controller.portal.ProductController" target="org.springframework.web.bind.annotation.RequestMapping">
+      <point x="-107.25" y="-50.0" />
+      <point x="4051.25" y="2485.0" />
+      <point x="2837.6363636363635" y="2485.0" />
+      <point x="61.63636363636351" y="84.0" />
+    </edge>
+    <edge source="com.mmall.service.impl.OrderServiceImpl" target="org.springframework.stereotype.Service">
+      <point x="-114.5" y="-383.5" />
+      <point x="1959.0394736842104" y="412.0" />
+      <point x="1913.0394736842104" y="412.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.common.Const.PayPlatformEnum" target="com.mmall.common.Const">
+      <point x="59.0" y="-62.0" />
+      <point x="1407.0" y="1785.0" />
+      <point x="1991.4375" y="1785.0" />
+      <point x="-62.1875" y="49.5" />
+    </edge>
+    <edge source="com.alipay.demo.trade.service.impl.hb.AbsHbRunner" target="java.lang.Runnable">
+      <point x="0.0" y="-166.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.service.impl.OrderItemServiceImpl" target="org.springframework.stereotype.Service">
+      <point x="-114.5" y="-119.0" />
+      <point x="4037.25" y="372.0" />
+      <point x="1977.0394736842104" y="372.0" />
+      <point x="64.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.service.impl.CategoryServiceImpl" target="com.mmall.service.ICategoryService">
+      <point x="-124.0" y="-96.0" />
+      <point x="0.0" y="61.0" />
+    </edge>
+    <edge source="com.mmall.controller.backend.OrderManageController" target="org.springframework.web.bind.annotation.RequestMapping">
+      <point x="-108.0" y="-107.5" />
+      <point x="4501.0" y="2465.0" />
+      <point x="2858.181818181818" y="2465.0" />
+      <point x="82.18181818181802" y="84.0" />
+    </edge>
+    <edge source="com.mmall.common.Const.ProductListOrderBy" target="com.mmall.common.Const">
+      <point x="0.0" y="-26.5" />
+      <point x="2916.0" y="1775.0" />
+      <point x="2140.6875" y="1775.0" />
+      <point x="87.0625" y="49.5" />
+    </edge>
+    <edge source="com.mmall.service.impl.CommentServiceImpl" target="org.springframework.stereotype.Service">
+      <point x="100.25" y="-61.5" />
+      <point x="894.5" y="392.0" />
+      <point x="1865.0394736842104" y="392.0" />
+      <point x="-48.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.service.impl.CartServiceImpl" target="com.mmall.service.ICartService">
+      <point x="117.5" y="-130.5" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="com.mmall.service.impl.ShippingServiceImpl" target="com.mmall.service.IShippingService">
+      <point x="91.75" y="-84.5" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="com.mmall.common.Const.OrderStatusEnum" target="java.lang.Enum">
+      <point x="-59.75" y="-131.5" />
+      <point x="0.0" y="189.0" />
+    </edge>
+    <edge source="java.lang.Enum" target="java.lang.Comparable">
+      <point x="69.75" y="-189.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.controller.backend.ProductManageController" target="org.springframework.stereotype.Controller">
+      <point x="155.75" y="-130.5" />
+      <point x="467.25" y="2535.0" />
+      <point x="2915.5454545454545" y="2535.0" />
+      <point x="-65.4545454545455" y="26.5" />
+    </edge>
+    <edge source="com.mmall.service.impl.OrderServiceImpl" target="com.mmall.service.IOrderService">
+      <point x="114.5" y="-383.5" />
+      <point x="2188.0394736842104" y="412.0" />
+      <point x="2241.5" y="412.0" />
+      <point x="0.0" y="176.0" />
+    </edge>
+    <edge source="com.mmall.service.impl.FileServiceImpl" target="org.springframework.stereotype.Service">
+      <point x="67.0" y="-38.5" />
+      <point x="1757.5394736842104" y="412.0" />
+      <point x="1897.0394736842104" y="412.0" />
+      <point x="-16.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.common.Const.Cart" target="com.mmall.common.Const">
+      <point x="0.0" y="-61.0" />
+      <point x="2663.5" y="1785.0" />
+      <point x="2115.8125" y="1785.0" />
+      <point x="62.1875" y="49.5" />
+    </edge>
+    <edge source="com.mmall.common.ResponseCode" target="java.lang.Enum">
+      <point x="0.0" y="-96.5" />
+      <point x="839.4999999999999" y="1805.0" />
+      <point x="990.892857142857" y="1805.0" />
+      <point x="-39.85714285714289" y="189.0" />
+    </edge>
+    <edge source="com.mmall.controller.portal.OrderController" target="org.springframework.stereotype.Controller">
+      <point x="117.0" y="-130.5" />
+      <point x="5196.0" y="2435.0" />
+      <point x="3046.4545454545455" y="2435.0" />
+      <point x="65.4545454545455" y="26.5" />
+    </edge>
+    <edge source="org.codehaus.jackson.map.annotate.JsonSerialize.Typing" target="org.codehaus.jackson.map.annotate.JsonSerialize">
+      <point x="-29.75" y="-50.0" />
+      <point x="618.7499999999999" y="1775.0" />
+      <point x="592.7499999999999" y="1775.0" />
+      <point x="122.0" y="107.0" />
+    </edge>
+    <edge source="org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion" target="java.lang.Enum">
+      <point x="32.75" y="-73.0" />
+      <point x="536.2499999999999" y="1785.0" />
+      <point x="911.1785714285713" y="1785.0" />
+      <point x="-119.57142857142856" y="189.0" />
+    </edge>
+    <edge source="com.mmall.common.Const.AlipayCallback" target="com.mmall.common.Const">
+      <point x="0.0" y="-61.0" />
+      <point x="2170.0" y="1805.0" />
+      <point x="2066.0625" y="1805.0" />
+      <point x="12.4375" y="49.5" />
+    </edge>
+    <edge source="com.mmall.service.impl.OrderItemServiceImpl" target="com.mmall.service.IOrderItemService">
+      <point x="114.5" y="-119.0" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="com.mmall.controller.portal.UserController" target="org.springframework.stereotype.Controller">
+      <point x="115.5" y="-153.5" />
+      <point x="1490.5" y="2555.0" />
+      <point x="2941.7272727272725" y="2555.0" />
+      <point x="-39.27272727272748" y="26.5" />
+    </edge>
+    <edge source="com.mmall.service.impl.CategoryServiceImpl" target="org.springframework.stereotype.Service">
+      <point x="124.0" y="-96.0" />
+      <point x="1410.5" y="402.0" />
+      <point x="1881.0394736842104" y="402.0" />
+      <point x="-32.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.controller.portal.ShippingController" target="org.springframework.web.bind.annotation.RequestMapping">
+      <point x="-98.5" y="-84.5" />
+      <point x="3628.5" y="2505.0" />
+      <point x="2817.090909090909" y="2505.0" />
+      <point x="41.09090909090901" y="84.0" />
+    </edge>
+    <edge source="com.mmall.controller.backend.OrderItemManageController" target="org.springframework.stereotype.Controller">
+      <point x="120.25" y="-130.5" />
+      <point x="2525.75" y="2575.0" />
+      <point x="2967.909090909091" y="2575.0" />
+      <point x="-13.090909090909008" y="26.5" />
+    </edge>
+    <edge source="com.mmall.controller.backend.UserManageController" target="org.springframework.web.bind.annotation.RequestMapping">
+      <point x="-99.75" y="-38.5" />
+      <point x="3210.75" y="2525.0" />
+      <point x="2796.5454545454545" y="2525.0" />
+      <point x="20.545454545454504" y="84.0" />
+    </edge>
+    <edge source="org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion" target="org.codehaus.jackson.map.annotate.JsonSerialize">
+      <point x="-32.75" y="-73.0" />
+      <point x="0.0" y="107.0" />
+    </edge>
+    <edge source="com.mmall.service.impl.FileServiceImpl" target="com.mmall.service.IFileService">
+      <point x="-67.0" y="-38.5" />
+      <point x="1623.5394736842104" y="372.0" />
+      <point x="1599.9605263157894" y="372.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.controller.portal.CartController" target="org.springframework.stereotype.Controller">
+      <point x="106.25" y="-130.5" />
+      <point x="2984.75" y="2575.0" />
+      <point x="2981.0" y="2575.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.common.Const.ProductStatusEnum" target="com.mmall.common.Const">
+      <point x="61.75" y="-62.0" />
+      <point x="1937.25" y="1805.0" />
+      <point x="2041.1875" y="1805.0" />
+      <point x="-12.4375" y="49.5" />
+    </edge>
+    <edge source="com.mmall.common.Const.PaymentTypeEnum" target="com.mmall.common.Const">
+      <point x="61.5" y="-74.0" />
+      <point x="1670.5" y="1795.0" />
+      <point x="2016.3125" y="1795.0" />
+      <point x="-37.3125" y="49.5" />
+    </edge>
+    <edge source="com.alipay.demo.trade.DemoHbRunner" target="com.alipay.demo.trade.service.impl.hb.AbsHbRunner">
+      <point x="0.0" y="-50.0" />
+      <point x="0.0" y="166.0" />
+    </edge>
+    <edge source="com.mmall.service.impl.ProductServiceImpl" target="com.mmall.service.IProductService">
+      <point x="148.0" y="-176.5" />
+      <point x="0.0" y="118.5" />
+    </edge>
+    <edge source="com.mmall.service.impl.ProductServiceImpl" target="org.springframework.stereotype.Service">
+      <point x="-148.0" y="-176.5" />
+      <point x="3425.25" y="382.0" />
+      <point x="1961.0394736842104" y="382.0" />
+      <point x="48.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.service.impl.CommentServiceImpl" target="com.mmall.service.ICommentService">
+      <point x="-100.25" y="-61.5" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="com.mmall.common.Const.PaymentTypeEnum" target="java.lang.Enum">
+      <point x="-61.5" y="-74.0" />
+      <point x="1547.5" y="1755.0" />
+      <point x="1110.4642857142858" y="1755.0" />
+      <point x="79.71428571428578" y="189.0" />
+    </edge>
+    <edge source="com.mmall.controller.backend.OrderItemManageController" target="org.springframework.web.bind.annotation.RequestMapping">
+      <point x="-120.25" y="-130.5" />
+      <point x="2285.25" y="2525.0" />
+      <point x="2755.4545454545455" y="2525.0" />
+      <point x="-20.545454545454504" y="84.0" />
+    </edge>
+    <edge source="java.lang.Runnable" target="java.lang.FunctionalInterface">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.mmall.controller.portal.UserController" target="org.springframework.web.bind.annotation.RequestMapping">
+      <point x="-115.5" y="-153.5" />
+      <point x="1259.5" y="2505.0" />
+      <point x="2714.3636363636365" y="2505.0" />
+      <point x="-61.63636363636351" y="84.0" />
+    </edge>
+    <edge source="com.mmall.service.impl.UserServiceimpl" target="com.mmall.service.IUserService">
+      <point x="-114.75" y="-142.0" />
+      <point x="0.0" y="130.0" />
+    </edge>
+    <edge source="java.lang.Enum" target="java.io.Serializable">
+      <point x="-69.75" y="-189.0" />
+      <point x="960.9999999999999" y="1322.0" />
+      <point x="161.5" y="1322.0" />
+      <point x="28.5" y="15.0" />
+    </edge>
+    <edge source="com.mmall.service.impl.UserServiceimpl" target="org.springframework.stereotype.Service">
+      <point x="114.75" y="-142.0" />
+      <point x="459.0" y="382.0" />
+      <point x="1849.0394736842104" y="382.0" />
+      <point x="-64.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.common.Const.OrderStatusEnum" target="com.mmall.common.Const">
+      <point x="59.75" y="-131.5" />
+      <point x="1150.25" y="1775.0" />
+      <point x="1966.5625" y="1775.0" />
+      <point x="-87.0625" y="49.5" />
+    </edge>
+    <edge source="com.mmall.service.impl.CartServiceImpl" target="org.springframework.stereotype.Service">
+      <point x="-117.5" y="-130.5" />
+      <point x="2492.0" y="402.0" />
+      <point x="1929.0394736842104" y="402.0" />
+      <point x="16.0" y="26.5" />
+    </edge>
+    <edge source="com.mmall.common.Const.ProductStatusEnum" target="java.lang.Enum">
+      <point x="-61.75" y="-62.0" />
+      <point x="1813.75" y="1745.0" />
+      <point x="1150.3214285714284" y="1745.0" />
+      <point x="119.57142857142844" y="189.0" />
+    </edge>
+    <edge source="com.mmall.controller.portal.OrderController" target="org.springframework.web.bind.annotation.RequestMapping">
+      <point x="-117.0" y="-130.5" />
+      <point x="4962.0" y="2445.0" />
+      <point x="2878.727272727273" y="2445.0" />
+      <point x="102.72727272727298" y="84.0" />
+    </edge>
+    <edge source="com.mmall.controller.backend.CategoryManageController" target="org.springframework.stereotype.Controller">
+      <point x="129.75" y="-84.5" />
+      <point x="2015.25" y="2565.0" />
+      <point x="2954.818181818182" y="2565.0" />
+      <point x="-26.181818181818016" y="26.5" />
+    </edge>
+    <edge source="com.mmall.service.impl.ShippingServiceImpl" target="org.springframework.stereotype.Service">
+      <point x="-91.75" y="-84.5" />
+      <point x="2982.0" y="392.0" />
+      <point x="1945.0394736842104" y="392.0" />
+      <point x="32.0" y="26.5" />
+    </edge>
+    <edge source="org.codehaus.jackson.map.annotate.JsonSerialize.Typing" target="java.lang.Enum">
+      <point x="29.75" y="-50.0" />
+      <point x="678.2499999999999" y="1795.0" />
+      <point x="951.0357142857142" y="1795.0" />
+      <point x="-79.71428571428567" y="189.0" />
+    </edge>
+    <edge source="com.mmall.controller.portal.CommentController" target="org.springframework.stereotype.Controller">
+      <point x="120.25" y="-84.5" />
+      <point x="1003.75" y="2545.0" />
+      <point x="2928.6363636363635" y="2545.0" />
+      <point x="-52.36363636363649" y="26.5" />
+    </edge>
+    <edge source="com.mmall.controller.portal.CartController" target="org.springframework.web.bind.annotation.RequestMapping">
+      <point x="-106.25" y="-130.5" />
+      <point x="2772.25" y="2525.0" />
+      <point x="2776.0" y="2525.0" />
+      <point x="0.0" y="84.0" />
+    </edge>
+    <edge source="com.mmall.controller.portal.ShippingController" target="org.springframework.stereotype.Controller">
+      <point x="98.5" y="-84.5" />
+      <point x="3825.5" y="2495.0" />
+      <point x="3007.181818181818" y="2495.0" />
+      <point x="26.181818181818016" y="26.5" />
+    </edge>
+    <edge source="com.mmall.controller.portal.CommentController" target="org.springframework.web.bind.annotation.RequestMapping">
+      <point x="-120.25" y="-84.5" />
+      <point x="763.25" y="2495.0" />
+      <point x="2693.818181818182" y="2495.0" />
+      <point x="-82.18181818181802" y="84.0" />
+    </edge>
+    <edge source="com.mmall.controller.backend.CategoryManageController" target="org.springframework.web.bind.annotation.RequestMapping">
+      <point x="-129.75" y="-84.5" />
+      <point x="1755.75" y="2515.0" />
+      <point x="2734.909090909091" y="2515.0" />
+      <point x="-41.09090909090901" y="84.0" />
+    </edge>
+    <edge source="com.mmall.common.Const.Role" target="com.mmall.common.Const">
+      <point x="0.0" y="-38.0" />
+      <point x="2436.0" y="1795.0" />
+      <point x="2090.9375" y="1795.0" />
+      <point x="37.3125" y="49.5" />
+    </edge>
+    <edge source="com.mmall.common.ServerResponse" target="org.codehaus.jackson.map.annotate.JsonSerialize">
+      <point x="104.5" y="-188.5" />
+      <point x="313.5" y="1805.0" />
+      <point x="348.7499999999999" y="1805.0" />
+      <point x="-122.0" y="107.0" />
+    </edge>
+    <edge source="com.mmall.controller.backend.UserManageController" target="org.springframework.stereotype.Controller">
+      <point x="99.75" y="-38.5" />
+      <point x="3410.25" y="2515.0" />
+      <point x="2994.090909090909" y="2515.0" />
+      <point x="13.090909090909008" y="26.5" />
+    </edge>
+    <edge source="com.mmall.controller.backend.ProductManageController" target="org.springframework.web.bind.annotation.RequestMapping">
+      <point x="-155.75" y="-130.5" />
+      <point x="155.75" y="2485.0" />
+      <point x="2673.2727272727275" y="2485.0" />
+      <point x="-102.72727272727252" y="84.0" />
+    </edge>
+    <edge source="com.mmall.common.ServerResponse" target="java.io.Serializable">
+      <point x="-104.5" y="-188.5" />
+      <point x="-28.5" y="15.0" />
+    </edge>
+    <edge source="com.mmall.common.Const.PayPlatformEnum" target="java.lang.Enum">
+      <point x="-59.0" y="-62.0" />
+      <point x="1289.0" y="1765.0" />
+      <point x="1070.6071428571427" y="1765.0" />
+      <point x="39.85714285714289" y="189.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.34174757281553403" x="3330.923295454545" y="449.0170454545454" />
+  <SelectedNodes>
+    <node>com.alipay.demo.trade.Main</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Constructors</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
